@@ -44,18 +44,18 @@ PointCloud 데이터에 Auto-Labeling을 적용하는 방법을 설명합니다.
 ## 7. OpenPCDet을 활용한 `label_array` 생성
 - OpenPCDet을 이용하여 Auto-Labeling을 수행합니다.  
 - Python 코드(`pcdet_auto_labeling.py`) 실행 필요.  
-- 결과로 `label_array_from_python_2.mat` 파일 생성.  
+- 결과로 `label_array_from_파일명.mat` 파일 생성.  
 
 ---
 
 ## 8. Auto-Labeled 정보 추가
 ```matlab
 >> load("my_gTruth.mat")
->> load('label_array_from_python_2.mat')
+>> load('label_array_from_파일명.mat')
 >> at = array2timetable(label_array, 'TimeStep', seconds(1.0), 'VariableNames',{'Vehicle','Pedestrian','Cyclist'});
 >> at.Time.Format = 'mm:ss.SSSSS';
 >> gTruth2 = groundTruthLidar(gTruth.DataSource, gTruth.LabelDefinitions, at);
->> save("labeling_result.mat", "gTruth2")
+>> save("auto_labed_파일명.mat", "gTruth2")
 ```
 
 * 코드 설명
@@ -64,7 +64,29 @@ PointCloud 데이터에 Auto-Labeling을 적용하는 방법을 설명합니다.
     * 최종 결과를 ```labeling_result.mat```으로 저장
 
 ## 9. Auto-Labeled 결과 확인
-- MATLAB LiDAR Labeler 실행 후, 8번에서 저장한 labeling_result.mat 파일을 불러옵니다.
+- MATLAB LiDAR Labeler 실행 후, 8번에서 저장한 auto_labed_파일명.mat 파일을 불러옵니다.
 ![alt text](imgs/image-10.png)
 ![alt text](imgs/image-11.png)
 
+## 10. 오탐지 수정 및 미탐지 추가 작업
+- 미탐지 작업 전
+![alt text](imgs/image-12.png)
+
+- 미탐지 작업 후
+![alt text](imgs/image-13.png)
+
+몇 가지 간단한 사용법 안내
+- 좌측상단의 '투영뷰' 사용 시, 더욱 편한 라벨링 작업 가능
+- 선택 시 3D 박스 크기는 A-훨스크롤로 조정 가능
+- 아래 동영상 참고
+
+[![MATLAB LiDAR Labeler](http://img.youtube.com/vi/pU2p66FU5q8/0.jpg)](https://youtu.be/pU2p66FU5q8)
+
+## 저장하기
+![alt text](image-14.png)
+![alt text](image-15.png)
+
+## 전체 시퀀스 촬영 영상
+- 아래 영상을 참고해주세요
+
+[![MATLAB LiDAR Labeler](http://img.youtube.com/vi/fx3Shd7IRE4/0.jpg)](https://youtu.be/fx3Shd7IRE4)
