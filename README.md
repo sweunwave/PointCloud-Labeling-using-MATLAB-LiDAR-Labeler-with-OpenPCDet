@@ -83,8 +83,8 @@ PointCloud 데이터에 Auto-Labeling을 적용하는 방법을 설명합니다.
 [![MATLAB LiDAR Labeler](http://img.youtube.com/vi/pU2p66FU5q8/0.jpg)](https://youtu.be/pU2p66FU5q8)
 
 ## 저장하기
-![alt text](image-14.png)
-![alt text](image-15.png)
+![alt text](imgs/image-14.png)
+![alt text](imgs/image-15.png)
 
 ## 전체 시퀀스 촬영 영상
 - 아래 영상을 참고해주세요
